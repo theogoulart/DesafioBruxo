@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  app:
+    image: node:16.16.0-alpine3.16
+    command: npx create-react-app my-app
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
