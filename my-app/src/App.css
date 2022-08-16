@@ -1,10 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +9,70 @@
   }
 }
 
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header {
+  display: flex;
+}
+
+.Select__container {
+  margin: 20px;
+}
+
+.Select {
+  color: #222;
+}
+
+.Card {
+  border: double;
+  display: flex;
+  font-size: small;
+  flex-direction: row;
+  margin: 20px;
+  padding: 7px;
+  text-align: left;
+  width: 300px;
+  background-color: #ccc;
+  color: #222;
+}
+
+.Char-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80vw;
+}
+
+.Gryffindor {
+  background-color: #6C0003;
+  color: #E09C09;
+}
+
+.Slytherin {
+  background-color: #2B751F;
+  color: #CCCCCC;
+}
+
+.Ravenclaw {
+  background-color: #6C0003;
+  color: #8E501D;
+}
+
+.Hufflepuf {
+  background-color: #1F1F17;
+  color: #FE9D08;
+}
+
+.Card__info {
+  padding: 0 20px;
 }
 
 @keyframes App-logo-spin {
