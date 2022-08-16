@@ -1,9 +1,31 @@
 import './App.css';
+import { useState } from 'react';
 import Card from './Components/Card';
 import Select from 'react-select'; 
 
+const houseOptions = [
+  { value: '', label: 'All' },
+  { value: 'Gryffindor', label: 'Gryffindor' },
+  { value: 'Slytherin', label: 'Slytherin' },
+  { value: 'Ravenclaw', label: 'Ravenclaw' },
+  { value: 'Hufflepuf', label: 'Hufflepuf' }
+];
+
+const ancestryOptions = [
+  { value: '', label: 'All' },
+  { value: 'half-blood', label: 'half-blood' },
+  { value: 'muggleborn', label: 'muggleborn' },
+  { value: 'pure-blood', label: 'pure-blood' }
+];
+
 function App() {
-  var charactes = [
+  const [houseFilter, setHouseFilter] = useState("");
+  const [ancestryFilter, setAncestryFilter] = useState("");
+
+  const filterHouse = (option) => setHouseFilter(option.value);
+  const filterAncestry = (option) => setAncestryFilter(option.value);
+
+  var characters = [
     {
     "name": "Harry Potter",
     "alternate_names": [],
@@ -108,29 +130,25 @@ function App() {
     }
   ];
 
-  const houseOptions = [
-    { value: 'gryffindor', label: 'Gryffindor' },
-    { value: 'slytherin', label: 'Slytherin' },
-    { value: 'ravenclaw', label: 'Ravenclaw' },
-    { value: 'hufflepuf', label: 'Hufflepuf' }
-  ];
-
-  var get = (value) => console.log(value);
+  characters = characters.filter(v => {
+    return (!houseFilter || v.house == houseFilter) &&
+      (!ancestryFilter || v.ancestry == ancestryFilter);
+  });
 
   return (
     <div className="App">
       <header className="App-header">
         <div className="Select__container">
           <p>House:</p>
-          <Select onChange={get} className="Select" options={houseOptions} />
+          <Select onChange={filterHouse} className="Select" options={houseOptions} />
         </div>
         <div className="Select__container">
           <p>Ancestry:</p>
-          <Select onChange={get} className="Select" options={houseOptions} />
+          <Select onChange={filterAncestry} className="Select" options={ancestryOptions} />
         </div>
       </header>
       <section className="Char-list">
-        {charactes.map((c, i) => (<Card key={i} character={c}/>))}
+        {characters.map((c, i) => (<Card key={i} character={c}/>))}
       </section>
     </div>
   );
