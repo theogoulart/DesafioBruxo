@@ -20,6 +20,7 @@ const ancestryOptions = [
 
 function App() {
   const [characters, setChatacters] = useState([]);
+  const [maxCharacters, setMaxCharacters] = useState(10);
   const [houseFilter, setHouseFilter] = useState("");
   const [ancestryFilter, setAncestryFilter] = useState("");
 
@@ -35,7 +36,7 @@ function App() {
   const filteredCharacters = characters.filter(v => {
     return (!houseFilter || v.house == houseFilter) &&
       (!ancestryFilter || v.ancestry == ancestryFilter);
-  });
+  }).slice(0, maxCharacters);
 
   return (
     <div className="App">
@@ -52,6 +53,7 @@ function App() {
       <section className="Char-list">
         {filteredCharacters.map((c, i) => (<Card key={i} character={c}/>))}
       </section>
+      <button onClick={() => setMaxCharacters(maxCharacters + 10)} className="Button">Exibir Mais</button>
     </div>
   );
 }
