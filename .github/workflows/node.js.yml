@@ -28,4 +28,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./my-app
     - name: Build project
-      run: npm --prefix my-app/ run build
+      run: npm run build
