@@ -1,10 +1,10 @@
 function Card(props) {
-  var character = props.character;
-  var clsNm = "Card " + character.house;
+  const character = props.character;
+  const clsNm = "Card " + character.house;
 
   return (
     <div className={clsNm}>
-      <img height="113" width="81" src={character.image}/>
+      <img alt={character.name} height="113" width="81" src={character.image}/>
       <div className="Card__info">
         <h2>{character.name}</h2>
         <small>born in {character.dateOfBirth}</small>
