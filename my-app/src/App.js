@@ -34,8 +34,8 @@ function App() {
   }, []);
 
   const filteredCharacters = characters.filter(v => {
-    return (!houseFilter || v.house == houseFilter) &&
-      (!ancestryFilter || v.ancestry == ancestryFilter);
+    return (!houseFilter || v.house === houseFilter) &&
+      (!ancestryFilter || v.ancestry === ancestryFilter);
   }).slice(0, maxCharacters);
 
   return (
