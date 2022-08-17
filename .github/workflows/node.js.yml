@@ -13,10 +13,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-    defaults:
-      run:
-        working-directory: ./my-app
 
     strategy:
       matrix:
@@ -31,4 +27,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: ./my-app
-    - run: npm run build --if-present
+    - name: Build project
+      working-directory: ./my-app
+      run: npm run build
