@@ -16,7 +16,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: my-app
+        working-directory: ./my-app
 
     strategy:
       matrix:
@@ -30,5 +30,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        working-directory: my-app
     - run: npm run build --if-present
