@@ -28,7 +28,7 @@ function App() {
   const filterAncestry = (option) => setAncestryFilter(option.value);
 
   useEffect(() => {
-    fetch('http://hp-api.herokuapp.com/api/characters')
+    fetch('https://hp-api.onrender.com/api/characters')
       .then(response => response.json())
       .then(data => setChatacters(data))
   }, []);
